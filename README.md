@@ -1,48 +1,42 @@
-# 🌹 Magia para Enamorar - Landing Page
+# Landing Page - Magia para Enamorar
 
-Una landing page elegante y mística para servicios de magia y rituales de amor.
+Página de aterrizaje para servicios esotéricos y rituales de amor.
 
-## ✨ Características
+## Despliegue en Cloudflare Pages
 
-- **Diseño Responsive**: Se adapta perfectamente a todos los dispositivos
-- **Efectos Parallax**: Imágenes de fondo con efecto parallax para mayor inmersión
-- **Animaciones Suaves**: Efectos de fade-in al hacer scroll
-- **SEO Optimizado**: Metadatos completos para mejor posicionamiento
-- **Accesibilidad**: Código semántico y accesible
+### Opción 1: Despliegue Automático (Recomendado)
 
-## 🎨 Tecnologías Utilizadas
+1. Conecta tu repositorio de GitHub a Cloudflare Pages
+2. Configura el build:
+   - **Framework preset**: None
+   - **Build command**: (dejar vacío)
+   - **Build output directory**: (dejar vacío)
+   - **Root directory**: (dejar vacío)
 
-- HTML5 semántico
-- CSS3 con variables CSS
-- JavaScript vanilla (Intersection Observer API)
-- Fuentes de Google Fonts (Dancing Script, Montserrat)
+### Opción 2: Despliegue Manual con Wrangler
 
-## 🚀 Cómo Ver la Página
+1. Instala Wrangler:
+```bash
+npm install -g wrangler
+```
 
-1. Ve a la pestaña **Settings** del repositorio
-2. Desplázate hacia abajo hasta la sección **Pages**
-3. En **Source**, selecciona **Deploy from a branch**
-4. Selecciona la rama **main** y la carpeta **root**
-5. Haz clic en **Save**
+2. Autentícate con Cloudflare:
+```bash
+wrangler login
+```
 
-Tu página estará disponible en: `https://saltbalente.github.io/landingpage/`
+3. Despliega:
+```bash
+wrangler deploy
+```
 
-## 📱 Secciones de la Landing Page
+## Estructura del Proyecto
 
-- **Hero**: Introducción principal
-- **Amarre Espiritual**: Servicios de unión de almas
-- **Endulzamientos**: Rituales para suavizar corazones
-- **Desespero**: Para que te busque desesperadamente
+- `index.html` - Página principal (copia de landing.html)
+- `landing.html` - Página original
+- `wrangler.toml` - Configuración de Wrangler
+- `package.json` - Configuración del proyecto
 
-## 🔧 Personalización
+## Configuración
 
-El código está estructurado de manera modular y fácil de personalizar:
-
-- Colores definidos en variables CSS
-- Imágenes de fondo configurables
-- Textos editables directamente en el HTML
-- Estilos organizados por secciones
-
----
-
-*Creado con ❤️ para conectar corazones a través de la magia del amor* 
+El proyecto está configurado para desplegar una página HTML estática en Cloudflare Pages. No se requiere proceso de build ya que es contenido estático. 

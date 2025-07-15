@@ -1,0 +1,12 @@
+{
+  "name": "landingpage",
+  "version": "1.0.0",
+  "description": "Página de aterrizaje para servicios esotéricos",
+  "main": "landing.html",
+  "scripts": {
+    "deploy": "wrangler deploy"
+  },
+  "keywords": ["landing-page", "static-site"],
+  "author": "",
+  "license": "MIT"
+} 
