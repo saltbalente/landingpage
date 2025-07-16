@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://landingpage-edq.pages.dev/sitemap.xml
+
+# Crawl-delay (opcional, para ser respetuoso con el servidor)
+Crawl-delay: 1
+
+# Permitir acceso a recursos importantes
+Allow: /*.jpg
+Allow: /*.png
+Allow: /*.mp4
+Allow: /*.css
+Allow: /*.js
+
+# No bloquear nada específico
+# Disallow: /admin/
+# Disallow: /private/ 
