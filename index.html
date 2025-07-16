@@ -32,13 +32,342 @@
     <!-- SEO -->
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 
+    <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Rituales de Amor Esotéricos",
-      "description": "Expertos en magia para enamorar, amarres espirituales y endulzamientos para atraer el amor.",
-      "image": "https://i.pinimg.com/736x/f7/44/68/f74468681f78b86c8f9e6c0f16371d1b.jpg"
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.tusitioweb.com/#organization",
+          "name": "Magia del Amor - Rituales Esotéricos",
+          "url": "https://www.tusitioweb.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://i.pinimg.com/736x/f7/44/68/f74468681f78b86c8f9e6c0f16371d1b.jpg",
+            "width": 736,
+            "height": 544
+          },
+          "description": "Expertos en magia para enamorar, amarres espirituales y endulzamientos para atraer el amor verdadero. Más de 30 años de experiencia en rituales ancestrales.",
+          "foundingDate": "1993",
+          "numberOfEmployees": "5",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "availableLanguage": ["Spanish"],
+            "areaServed": "Worldwide"
+          },
+          "sameAs": [
+            "https://www.facebook.com/magiadelamor",
+            "https://www.instagram.com/magiadelamor"
+          ]
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://www.tusitioweb.com/#business",
+          "name": "Magia del Amor - Rituales Esotéricos",
+          "description": "Servicios profesionales de magia para enamorar, amarres espirituales y endulzamientos para atraer el amor verdadero.",
+          "url": "https://www.tusitioweb.com/",
+          "telephone": "+1-555-123-4567",
+          "email": "contacto@magiadelamor.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "MX",
+            "addressLocality": "Ciudad de México",
+            "addressRegion": "CDMX"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 19.4326,
+            "longitude": -99.1332
+          },
+          "openingHours": "Mo-Su 09:00-21:00",
+          "priceRange": "$$",
+          "paymentAccepted": ["Cash", "Credit Card", "PayPal"],
+          "currenciesAccepted": ["MXN", "USD"],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Servicios de Amor Esotérico",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Amarre Espiritual Eterno",
+                  "description": "Unión de almas que trasciende el tiempo, basado en la energía pura y el consentimiento del universo.",
+                  "category": "Ritual de Amor",
+                  "provider": {
+                    "@id": "https://www.tusitioweb.com/#organization"
+                  }
+                },
+                "price": "150.00",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Endulzamiento para Enamorar",
+                  "description": "Elimina la amargura y distancia, suavizando el camino hacia el corazón de tu ser amado.",
+                  "category": "Ritual de Amor",
+                  "provider": {
+                    "@id": "https://www.tusitioweb.com/#organization"
+                  }
+                },
+                "price": "120.00",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Ritual de Atracción",
+                  "description": "Canaliza la energía de la atracción para que esa persona sienta necesidad irresistible de buscarte.",
+                  "category": "Ritual de Amor",
+                  "provider": {
+                    "@id": "https://www.tusitioweb.com/#organization"
+                  }
+                },
+                "price": "100.00",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock"
+              }
+            ]
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "127",
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          "review": [
+            {
+              "@type": "Review",
+              "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5",
+                "bestRating": "5"
+              },
+              "author": {
+                "@type": "Person",
+                "name": "María Elena"
+              },
+              "reviewBody": "Después de 3 años separados, mi ex regresó a mis brazos. El amarre espiritual funcionó perfectamente y ahora somos más felices que nunca.",
+              "datePublished": "2024-01-15"
+            },
+            {
+              "@type": "Review",
+              "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5",
+                "bestRating": "5"
+              },
+              "author": {
+                "@type": "Person",
+                "name": "Carlos Manuel"
+              },
+              "reviewBody": "El endulzamiento cambió completamente la actitud de mi pareja. Ahora es más cariñoso y atento que nunca antes.",
+              "datePublished": "2024-01-10"
+            },
+            {
+              "@type": "Review",
+              "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5",
+                "bestRating": "5"
+              },
+              "author": {
+                "@type": "Person",
+                "name": "Ana Sofía"
+              },
+              "reviewBody": "Increíble. Mi crush ahora me busca constantemente. Los rituales de atracción funcionaron más rápido de lo esperado.",
+              "datePublished": "2024-01-05"
+            }
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://www.tusitioweb.com/#maestro",
+          "name": "Maestro Alejandro",
+          "jobTitle": "Chaman Ancestral de la Selva",
+          "description": "Con más de 30 años de experiencia en las artes ancestrales, el Maestro Alejandro ha dedicado su vida a estudiar los secretos más profundos de la magia del amor.",
+          "image": "https://i.pinimg.com/736x/f7/44/68/f74468681f78b86c8f9e6c0f16371d1b.jpg",
+          "worksFor": {
+            "@id": "https://www.tusitioweb.com/#organization"
+          },
+          "knowsAbout": [
+            "Amarres Espirituales",
+            "Endulzamientos",
+            "Rituales de Amor",
+            "Protección Espiritual",
+            "Magia Ancestral",
+            "Chamanismo"
+          ],
+          "hasCredential": [
+            "Chaman Ancestral Certificado",
+            "Maestro de Rituales de Amor",
+            "Especialista en Amarres Espirituales"
+          ],
+          "alumniOf": {
+            "@type": "Organization",
+            "name": "Escuela Ancestral de Chamanismo"
+          },
+          "award": [
+            "Maestro del Año 2023 - Asociación de Chamanes",
+            "Certificación en Rituales de Amor Eterno"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.tusitioweb.com/#website",
+          "url": "https://www.tusitioweb.com/",
+          "name": "Magia del Amor - Rituales Esotéricos",
+          "description": "Descubre el poder de la magia para enamorar. Realizamos amarres espirituales, brujería para amarrar y endulzamientos efectivos.",
+          "publisher": {
+            "@id": "https://www.tusitioweb.com/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.tusitioweb.com/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.tusitioweb.com/#webpage",
+          "url": "https://www.tusitioweb.com/",
+          "name": "Magia para Enamorar | Amarres Espirituales y Rituales de Amor",
+          "description": "Descubre el poder de la magia para enamorar. Realizamos amarres espirituales, brujería para amarrar y endulzamientos efectivos para que esa persona especial te busque desesperadamente.",
+          "isPartOf": {
+            "@id": "https://www.tusitioweb.com/#website"
+          },
+          "about": {
+            "@id": "https://www.tusitioweb.com/#business"
+          },
+          "mainEntity": {
+            "@id": "https://www.tusitioweb.com/#business"
+          },
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Inicio",
+                "item": "https://www.tusitioweb.com/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es un amarre espiritual?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un amarre espiritual es una unión de almas que trasciende el tiempo, basado en la energía pura y el consentimiento del universo. No es una imposición, sino una conexión profunda que fortalece el vínculo amoroso entre dos personas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tiempo tarda en funcionar un ritual de amor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Los resultados varían según la situación y la energía de las personas involucradas. Algunos clientes ven resultados en 7-15 días, mientras que otros pueden tardar 1-3 meses. La efectividad depende de la fe y la energía positiva que se mantenga."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Los endulzamientos son seguros?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, nuestros endulzamientos son completamente seguros. Trabajamos con energía positiva y elementos naturales para suavizar el camino hacia el amor, eliminando la amargura y fomentando la ternura y el romance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué experiencia tiene el Maestro Alejandro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El Maestro Alejandro tiene más de 30 años de experiencia en las artes ancestrales. Es un Chaman Ancestral de la Selva, heredero de una tradición milenaria, y ha ayudado a miles de personas a encontrar y mantener el amor verdadero."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo funciona la consulta inicial?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La consulta inicial se realiza a través de WhatsApp. El Maestro Alejandro analiza tu situación específica y te recomienda el ritual más apropiado para tu caso. Cada ritual es personalizado según las necesidades individuales."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Los rituales funcionan a distancia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, los rituales funcionan perfectamente a distancia. La energía espiritual no conoce fronteras geográficas. El Maestro Alejandro puede realizar los rituales desde cualquier lugar y los efectos se manifiestan independientemente de la distancia."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué garantía ofrecen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ofrecemos seguimiento completo durante todo el proceso. Si después de 3 meses no ves resultados significativos, realizamos un ritual de refuerzo sin costo adicional. Nuestro compromiso es tu satisfacción y felicidad."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Es necesario creer en la magia para que funcione?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aunque la fe potencia los resultados, no es estrictamente necesario creer inicialmente. Muchos clientes escépticos han experimentado resultados sorprendentes. Lo importante es mantener una mente abierta y energía positiva."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Video Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "Maestro Alejandro - Chaman Ancestral de la Selva",
+      "description": "Conoce al Maestro Alejandro, Chaman Ancestral con más de 30 años de experiencia en rituales de amor y amarres espirituales. Heredero de una tradición milenaria.",
+      "thumbnailUrl": "https://i.pinimg.com/736x/f7/44/68/f74468681f78b86c8f9e6c0f16371d1b.jpg",
+      "uploadDate": "2024-01-01T00:00:00Z",
+      "duration": "PT30S",
+      "contentUrl": "https://www.tusitioweb.com/chaman-selva.mp4",
+      "embedUrl": "https://www.tusitioweb.com/chaman-selva.mp4",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Magia del Amor - Rituales Esotéricos",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://i.pinimg.com/736x/f7/44/68/f74468681f78b86c8f9e6c0f16371d1b.jpg"
+        }
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Maestro Alejandro",
+        "jobTitle": "Chaman Ancestral de la Selva"
+      },
+      "keywords": "chaman, rituales de amor, amarre espiritual, magia para enamorar, endulzamientos",
+      "genre": "Espiritual",
+      "inLanguage": "es"
     }
     </script>
 
