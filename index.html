@@ -24,6 +24,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="f149d6923e64bcba466f370bec99aae5.jpg" as="image" fetchpriority="high">
+    <link rel="preload" href="f74468681f78b86c8f9e6c0f16371d1b.jpg" as="image" fetchpriority="high">
+    <link rel="preload" href="chaman-selva.mp4" as="video" type="video/mp4">
 
     <script type="application/ld+json">
     {
@@ -211,21 +216,39 @@
         /* Section Specific Backgrounds - IMAGES UPDATED */
         #hero {
             background-image: url('f74468681f78b86c8f9e6c0f16371d1b.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         #amarre {
             background-image: url('f149d6923e64bcba466f370bec99aae5.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         #endulzamiento {
             background-image: url('d53a700deaeb9082288f95b9f3ad7137.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         #desespero {
             background-image: url('4cc9d8a778daaeb71f7a65fab4188b88.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         #testimonios {
             background-image: url('d53a700deaeb9082288f95b9f3ad7137.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         #maestro {
             background-image: url('f149d6923e64bcba466f370bec99aae5.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         
         /* Overlay to improve text readability */
@@ -713,7 +736,7 @@
                 
                 <div class="maestro-card fade-in">
                     <div class="maestro-video-container">
-                        <video class="maestro-video" autoplay loop muted playsinline>
+                        <video class="maestro-video" autoplay loop muted playsinline preload="metadata">
                             <source src="chaman-selva.mp4" type="video/mp4">
                             Tu navegador no soporta el elemento de video.
                         </video>
@@ -845,7 +868,8 @@
 
     <script>
         // Professional & Efficient JS for fade-in animations and header functionality
-        document.addEventListener('DOMContentLoaded', function() {
+        // Use requestIdleCallback for better performance
+        const initApp = () => {
             // Header functionality
             const header = document.querySelector('.header-mistico');
             const navToggle = document.getElementById('navToggle');
@@ -903,7 +927,14 @@
             fadeInElements.forEach(el => {
                 observer.observe(el);
             });
-        });
+        };
+
+        // Initialize app when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initApp);
+        } else {
+            initApp();
+        }
     </script>
 
 </body>
