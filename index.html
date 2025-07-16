@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
     <title>Magia para Enamorar | Amarres Espirituales y Rituales de Amor</title>
     <meta name="description" content="Descubre el poder de la magia para enamorar. Realizamos amarres espirituales, brujería para amarrar y endulzamientos efectivos para que esa persona especial te busque desesperadamente.">
@@ -201,7 +201,7 @@
             align-items: center;
             height: 100vh;
             padding: 20px;
-            /* Parallax Effect */
+            /* Parallax Effect - Desktop only */
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
@@ -269,34 +269,75 @@
 
         /* CTA Button Styling (Mobile-First) */
         .cta-button {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             font-family: var(--body-font);
-            font-weight: 500;
+            font-weight: 600;
             font-size: 1.1rem;
             text-decoration: none;
-            color: var(--dark-bg);
-            background-color: var(--amber-protection);
-            padding: 15px 30px; /* Large padding for easy tapping */
-            border-radius: 50px; /* Rounded borders */
+            color: var(--light-text);
+            background: linear-gradient(135deg, #25D366, #128C7E, #075E54);
+            background-size: 200% 100%;
+            padding: 15px 30px;
+            border-radius: 50px;
             border: none;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            -webkit-tap-highlight-color: transparent; /* Removes blue tap highlight on mobile */
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            -webkit-tap-highlight-color: transparent;
+            position: relative;
+            overflow: hidden;
         }
-        
-        .cta-button.red {
-            background-color: var(--blood-red);
-            color: var(--light-text);
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
         }
 
         .cta-button:hover, .cta-button:focus {
             transform: translateY(-3px);
-            background-color: #ffd040;
+            background-position: 100% 0;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            animation: gradientShift 2s ease infinite;
         }
-        
-        .cta-button.red:hover, .cta-button.red:focus {
-             background-color: #a80303;
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .cta-button:active {
+            transform: translateY(-1px);
+        }
+
+        .cta-button .whatsapp-icon {
+            width: 20px;
+            height: 20px;
+            filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
+        }
+
+        .cta-button .whatsapp-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: currentColor;
         }
 
         /* ------------------------- */
@@ -421,6 +462,57 @@
             }
         }
 
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            /* Fix parallax issues on mobile */
+            .parallax-section {
+                background-attachment: scroll !important;
+                background-size: cover !important;
+                background-position: center !important;
+                min-height: 100vh;
+            }
+            
+            /* Ensure images scale properly on mobile */
+            #hero, #amarre, #endulzamiento, #desespero, #testimonios {
+                background-size: cover !important;
+                background-position: center !important;
+                background-repeat: no-repeat !important;
+            }
+        }
+
+        /* iOS Specific Fixes */
+        @supports (-webkit-touch-callout: none) {
+            .parallax-section {
+                background-attachment: scroll !important;
+                background-size: cover !important;
+                background-position: center !important;
+            }
+            
+            /* Fix for iOS Safari viewport issues */
+            .parallax-section {
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+            }
+        }
+
+        /* Additional Mobile Image Fixes */
+        @media (max-width: 480px) {
+            .parallax-section {
+                background-size: 100% auto !important;
+                background-position: center top !important;
+            }
+            
+            .cta-button {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+            
+            .cta-button .whatsapp-icon {
+                width: 18px;
+                height: 18px;
+            }
+        }
+
         /* Header Responsive */
         @media (max-width: 768px) {
             .nav-menu {
@@ -500,7 +592,14 @@
             <div class="content-box fade-in">
                 <h1>Magia para Enamorar</h1>
                 <p>Despierta la pasión y el deseo. Conecta con el corazón de esa persona especial a través de la energía ancestral y los secretos del universo.</p>
-                <a href="#amarre" class="cta-button" aria-label="Descubre cómo hacerlo">Descubre el Poder</a>
+                <a href="#amarre" class="cta-button" aria-label="Descubre cómo hacerlo">
+                    <span class="whatsapp-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                        </svg>
+                    </span>
+                    Consultar
+                </a>
             </div>
         </section>
 
@@ -508,7 +607,14 @@
             <div class="content-box fade-in">
                 <h2>Amarre Espiritual Eterno</h2>
                 <p>Un <strong>amarre espiritual</strong> no es una imposición, es una unión de almas. Creamos un lazo de amor y lealtad que trasciende el tiempo, basado en la energía pura y el consentimiento del universo.</p>
-                <a href="#endulzamiento" class="cta-button red" aria-label="Conoce más sobre los amarres">Unir Almas</a>
+                <a href="#endulzamiento" class="cta-button" aria-label="Conoce más sobre los amarres">
+                    <span class="whatsapp-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                        </svg>
+                    </span>
+                    WhatsApp
+                </a>
             </div>
         </section>
 
@@ -516,7 +622,14 @@
             <div class="content-box fade-in">
                 <h2>Endulzamientos para Enamorar</h2>
                 <p>Elimina la amargura y la distancia. Con nuestros <strong>endulzamientos para enamorar</strong>, suavizamos el camino hacia el corazón de tu ser amado, fomentando la ternura y el romance.</p>
-                <a href="#desespero" class="cta-button" aria-label="Aprende sobre los endulzamientos">Atraer Dulzura</a>
+                <a href="#desespero" class="cta-button" aria-label="Aprende sobre los endulzamientos">
+                    <span class="whatsapp-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                        </svg>
+                    </span>
+                    Contactar
+                </a>
             </div>
         </section>
         
@@ -524,7 +637,14 @@
             <div class="content-box fade-in">
                 <h2>Para que me Busque Desesperadamente</h2>
                 <p>A través de un <strong>ritual para enamorar a alguien</strong>, canalizamos la energía de la atracción para que tus pensamientos inunden su mente y sienta una necesidad irresistible de buscarte.</p>
-                <a href="#testimonios" class="cta-button red" aria-label="Iniciar el ritual ahora">Iniciar el Ritual</a>
+                <a href="#testimonios" class="cta-button" aria-label="Iniciar el ritual ahora">
+                    <span class="whatsapp-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                        </svg>
+                    </span>
+                    Consultar
+                </a>
             </div>
         </section>
 
@@ -553,7 +673,14 @@
                     </div>
                 </div>
                 
-                <a href="#hero" class="cta-button" aria-label="Comenzar mi transformación de amor">Comenzar Mi Transformación</a>
+                <a href="#hero" class="cta-button" aria-label="Comenzar mi transformación de amor">
+                    <span class="whatsapp-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                        </svg>
+                    </span>
+                    WhatsApp
+                </a>
             </div>
         </section>
 
