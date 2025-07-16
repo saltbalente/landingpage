@@ -28,7 +28,6 @@
     <!-- Preload critical resources -->
     <link rel="preload" href="f149d6923e64bcba466f370bec99aae5.jpg" as="image" fetchpriority="high">
     <link rel="preload" href="f74468681f78b86c8f9e6c0f16371d1b.jpg" as="image" fetchpriority="high">
-    <link rel="preload" href="chaman-selva.mp4" as="video" type="video/mp4">
     
     <!-- SEO -->
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
@@ -614,6 +613,19 @@
                 -webkit-transform: translateZ(0);
                 transform: translateZ(0);
             }
+
+            /* iOS Video Fixes */
+            .maestro-video {
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+            }
+
+            .maestro-video-container {
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+            }
         }
 
         /* Additional Mobile Image Fixes */
@@ -739,7 +751,7 @@
                 
                 <div class="maestro-card fade-in">
                     <div class="maestro-video-container">
-                        <video class="maestro-video" autoplay loop muted playsinline preload="metadata">
+                        <video class="maestro-video" autoplay loop muted playsinline preload="auto" webkit-playsinline>
                             <source src="chaman-selva.mp4" type="video/mp4">
                             Tu navegador no soporta el elemento de video.
                         </video>
@@ -938,6 +950,37 @@
         } else {
             initApp();
         }
+
+        // iOS Video Fix
+        function fixIOSVideo() {
+            const video = document.querySelector('.maestro-video');
+            if (video) {
+                // Force play on iOS
+                video.addEventListener('loadedmetadata', function() {
+                    video.play().catch(function(error) {
+                        console.log('Video autoplay failed:', error);
+                        // Try again on user interaction
+                        document.addEventListener('touchstart', function() {
+                            video.play().catch(function(e) {
+                                console.log('Video play failed:', e);
+                            });
+                        }, { once: true });
+                    });
+                });
+
+                // Handle iOS Safari specific issues
+                video.addEventListener('webkitbeginfullscreen', function() {
+                    video.play();
+                });
+
+                video.addEventListener('webkitendfullscreen', function() {
+                    video.play();
+                });
+            }
+        }
+
+        // Call iOS video fix
+        fixIOSVideo();
     </script>
 
 </body>
