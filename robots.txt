@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://landingpage-edq.pages.dev/sitemap.xml
+Sitemap: https://amarredeamorfuertes.com/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
