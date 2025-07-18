@@ -401,7 +401,6 @@
     --blood-red: #8A0303;
     --amber-protection: #FFBF00;
     --dark-bg: #121212;
-    --light-text: #f0f0f0;
     --romantic-font: 'Dancing Script', cursive;
     --body-font: 'Montserrat', sans-serif;
 }
@@ -1053,7 +1052,7 @@ p {
 }
 
 .blog-content p {
-    color: var(--light-text);
+    color: black;
     line-height: 1.6;
     margin-bottom: 20px;
     font-size: 0.95rem;
