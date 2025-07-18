@@ -1,0 +1,103 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://amarredeamorfuertes.com/#website",
+      "url": "https://amarredeamorfuertes.com/",
+      "name": "Amarres de Amor Fuertes",
+      "description": "Especialistas en amarres de amor efectivos y rituales ancestrales para recuperar el amor perdido",
+      "publisher": {
+        "@id": "https://amarredeamorfuertes.com/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://amarredeamorfuertes.com/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://amarredeamorfuertes.com/#organization",
+      "name": "Amarres de Amor Fuertes",
+      "url": "https://amarredeamorfuertes.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://amarredeamorfuertes.com/logo.png"
+      },
+      "sameAs": [
+        "https://www.facebook.com/amarredeamorfuertes",
+        "https://www.instagram.com/amarredeamorfuertes"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-555-AMARRE",
+        "contactType": "customer service",
+        "availableLanguage": ["Spanish", "English"]
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://amarredeamorfuertes.com/#person",
+      "name": "Maestro Chamán",
+      "jobTitle": "Especialista en Amarres de Amor",
+      "worksFor": {
+        "@id": "https://amarredeamorfuertes.com/#organization"
+      },
+      "description": "Experto en rituales ancestrales y amarres de amor con más de 20 años de experiencia",
+      "knowsAbout": [
+        "Amarres de Amor",
+        "Rituales Ancestrales",
+        "Endulzamientos",
+        "Magia Blanca",
+        "Santería"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://amarredeamorfuertes.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Los amarres de amor son efectivos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, nuestros amarres de amor son altamente efectivos cuando se realizan correctamente con rituales ancestrales y la energía apropiada."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tiempo tardan en funcionar los amarres?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Los resultados pueden verse desde los primeros días hasta 3 meses, dependiendo de la complejidad del caso y la energía de la persona."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Los amarres son seguros?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutamente. Utilizamos solo magia blanca y rituales ancestrales que no causan daño a ninguna persona."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Amarres de Amor",
+      "description": "Servicio especializado en amarres de amor efectivos y rituales ancestrales",
+      "provider": {
+        "@id": "https://amarredeamorfuertes.com/#organization"
+      },
+      "areaServed": "Worldwide",
+      "serviceType": "Rituales Espirituales",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Consulta inicial gratuita"
+      }
+    }
+  ]
+} 

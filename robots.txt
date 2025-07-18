@@ -4,23 +4,50 @@ Allow: /
 # Sitemap
 Sitemap: https://amarredeamorfuertes.com/sitemap.xml
 
-# Crawl-delay
+# Crawl-delay optimizado
 Crawl-delay: 1
 
-# Allow all search engines
+# Configuración específica para Google
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0.5
 
+User-agent: Googlebot-Image
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: Googlebot-Mobile
+Allow: /
+Crawl-delay: 0.5
+
+# Otros motores de búsqueda
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Slurp
 Allow: /
+Crawl-delay: 1
 
 User-agent: DuckDuckBot
 Allow: /
+Crawl-delay: 1
+
+# Configuración para Yandex
+User-agent: Yandex
+Allow: /
+Crawl-delay: 1
 
 # Disallow admin areas (if any)
 Disallow: /admin/
 Disallow: /private/
-Disallow: /temp/ 
+Disallow: /temp/
+Disallow: /cgi-bin/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+
+# Allow important directories
+Allow: /blog/
+Allow: /css/
+Allow: /js/
+Allow: /images/ 

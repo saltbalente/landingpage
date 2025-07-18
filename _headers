@@ -3,31 +3,40 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com; frame-src https://www.googletagmanager.com;
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; frame-src https://www.googletagmanager.com;
+  X-DNS-Prefetch-Control: on
+  X-XSS-Protection: 1; mode=block
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 
 /*.html
-  Cache-Control: public, max-age=3600
-  X-Robots-Tag: index, follow
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  X-Robots-Tag: index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1
+  Link: <https://amarredeamorfuertes.com/>; rel=canonical
 
 /*.css
   Cache-Control: public, max-age=31536000, immutable
   Content-Type: text/css
+  Vary: Accept-Encoding
 
 /*.js
   Cache-Control: public, max-age=31536000, immutable
   Content-Type: application/javascript
+  Vary: Accept-Encoding
 
 /*.jpg
   Cache-Control: public, max-age=31536000, immutable
   Content-Type: image/jpeg
+  Vary: Accept-Encoding
 
 /*.png
   Cache-Control: public, max-age=31536000, immutable
   Content-Type: image/png
+  Vary: Accept-Encoding
 
 /*.mp4
   Cache-Control: public, max-age=31536000, immutable
   Content-Type: video/mp4
+  Vary: Accept-Encoding
 
 /sitemap.xml
   Content-Type: application/xml
