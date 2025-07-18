@@ -1057,7 +1057,9 @@ p {
     margin-bottom: 20px;
     font-size: 0.95rem;
 }
-
+p {
+    color: black !important;
+}
 .blog-link {
     display: inline-block;
     color: var(--amber-protection);
