@@ -8,8 +8,77 @@
     <meta name="keywords" content="rituales reconciliación, sanar relaciones, recuperar amor, reconciliación pareja">
     <link rel="canonical" href="https://amarredeamorfuertes.com/blog/rituales-reconciliacion.html">
     <link rel="stylesheet" href="../styles.css">
+
+    <style>
+    /* Critical CSS for above-the-fold content */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: #333; background: #fff; font-size: 16px; }
+    h1, h2, h3, h4, h5, h6 { font-weight: 600; line-height: 1.2; margin-bottom: 1rem; }
+    img { max-width: 100%; height: auto; display: block; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+    .btn, .cta-button { display: inline-block; padding: 12px 24px; background: #8B0000; color: white; text-decoration: none; border-radius: 8px; font-weight: 500; text-align: center; min-height: 44px; min-width: 44px; border: none; cursor: pointer; }
+    </style>
+    
+
+    <!-- Performance Optimizations -->
+    <link rel="preload" href="/mobile-optimization.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/layout-optimization.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/image-optimization.js" as="script">
+    <link rel="preload" href="/performance-optimization.js" as="script">
+    
+    <!-- Defer non-critical CSS -->
+    <link rel="stylesheet" href="/mobile-optimization.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/layout-optimization.css" media="print" onload="this.media='all'">
+    
+    <!-- Defer non-critical JavaScript -->
+    <script src="/image-optimization.js" defer></script>
+    <script src="/performance-optimization.js" defer></script>
+    
+
+    <script>
+    // Core Web Vitals monitoring
+    if ('PerformanceObserver' in window) {
+        // LCP monitoring
+        new PerformanceObserver((list) => {
+            const entries = list.getEntries();
+            const lastEntry = entries[entries.length - 1];
+            console.log('LCP:', lastEntry.startTime);
+            if (lastEntry.startTime > 2500) {
+                console.warn('LCP is too slow:', lastEntry.startTime);
+            }
+        }).observe({entryTypes: ['largest-contentful-paint']});
+        
+        // FID monitoring
+        new PerformanceObserver((list) => {
+            const entries = list.getEntries();
+            entries.forEach(entry => {
+                console.log('FID:', entry.processingStart - entry.startTime);
+                if (entry.processingStart - entry.startTime > 100) {
+                    console.warn('FID is too slow:', entry.processingStart - entry.startTime);
+                }
+            });
+        }).observe({entryTypes: ['first-input']});
+        
+        // CLS monitoring
+        let clsValue = 0;
+        new PerformanceObserver((list) => {
+            const entries = list.getEntries();
+            entries.forEach(entry => {
+                if (!entry.hadRecentInput) {
+                    clsValue += entry.value;
+                    console.log('CLS:', clsValue);
+                    if (clsValue > 0.1) {
+                        console.warn('CLS is too high:', clsValue);
+                    }
+                }
+            });
+        }).observe({entryTypes: ['layout-shift']});
+    }
+    </script>
+    
 </head>
 <body>
+<a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     <header class="header-mistico">
         <nav class="nav-container">
             <div class="nav-brand">
@@ -24,7 +93,7 @@
         </nav>
     </header>
 
-    <main class="blog-content">
+    <main class="blog-content" id="main-content" role="main">
         <article class="blog-article">
             <h1>Rituales de Reconciliación: Sanar Relaciones Dañadas</h1>
             
