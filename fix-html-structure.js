@@ -1,12 +1,41 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+// Función para limpiar y reorganizar la estructura HTML
+function fixHtmlStructure(htmlContent, filename) {
+    // Extraer el título del archivo
+    const titleMatch = htmlContent.match(/<title>(.*?)<\/title>/);
+    const title = titleMatch ? titleMatch[1] : 'Artículo de Blog';
+    
+    // Extraer la descripción
+    const descMatch = htmlContent.match(/<meta name="description" content="(.*?)">/);
+    const description = descMatch ? descMatch[1] : '';
+    
+    // Extraer las keywords
+    const keywordsMatch = htmlContent.match(/<meta name="keywords" content="(.*?)">/);
+    const keywords = keywordsMatch ? keywordsMatch[1] : '';
+    
+    // Extraer el contenido del artículo (todo lo que está entre <div class="blog-content"> y </div>)
+    const contentMatch = htmlContent.match(/<div class="blog-content">([\s\S]*?)<\/div>/);
+    const articleContent = contentMatch ? contentMatch[1] : '';
+    
+    // Extraer el breadcrumb
+    const breadcrumbMatch = articleContent.match(/<nav class="breadcrumb">([\s\S]*?)<\/nav>/);
+    const breadcrumb = breadcrumbMatch ? breadcrumbMatch[1] : '';
+    
+    // Extraer el contenido del artículo sin el breadcrumb
+    const articleWithoutBreadcrumb = articleContent.replace(/<nav class="breadcrumb">[\s\S]*?<\/nav>/, '');
+    
+    // Crear la nueva estructura HTML limpia
+    const cleanHtml = `<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amarres de Amor con Velas: El Poder de la Luz | Maestro Alejandro</title>
-    <meta name="description" content="Descubre el poder de los amarres de amor con velas. Rituales ancestrales que utilizan la luz y el fuego para atraer y mantener el amor. Técnicas efectivas y probadas.">
-    <meta name="keywords" content="amarres de amor con velas, amarre velas, rituales velas amor, amarres fuego, rituales luz">
-    <link rel="canonical" href="https://amarredeamorfuertes.com/blog/amarres-de-amor-con-velas.html">
+    <title>${title}</title>
+    <meta name="description" content="${description}">
+    <meta name="keywords" content="${keywords}">
+    <link rel="canonical" href="https://amarredeamorfuertes.com/blog/${filename}">
     
     <!-- CSS Styles -->
     <link rel="stylesheet" href="https://amarredeamorfuertes.com/styles.css">
@@ -15,18 +44,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Amarres de Amor con Velas: El Poder de la Luz | Maestro Alejandro">
-    <meta property="og:description" content="Descubre el poder de los amarres de amor con velas. Rituales ancestrales que utilizan la luz y el fuego para atraer y mantener el amor. Técnicas efectivas y probadas.">
+    <meta property="og:title" content="${title}">
+    <meta property="og:description" content="${description}">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://amarredeamorfuertes.com/blog/amarres-de-amor-con-velas.html">
+    <meta property="og:url" content="https://amarredeamorfuertes.com/blog/${filename}">
     
     <!-- Schema.org -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "Amarres de Amor con Velas: El Poder de la Luz | Maestro Alejandro",
-        "description": "Descubre el poder de los amarres de amor con velas. Rituales ancestrales que utilizan la luz y el fuego para atraer y mantener el amor. Técnicas efectivas y probadas.",
+        "headline": "${title}",
+        "description": "${description}",
         "author": {
             "@type": "Person",
             "name": "Maestro Alejandro"
@@ -40,7 +69,7 @@
         "dateModified": "2024-01-16",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://amarredeamorfuertes.com/blog/amarres-de-amor-con-velas.html"
+            "@id": "https://amarredeamorfuertes.com/blog/${filename}"
         }
     }
     </script>
@@ -311,24 +340,10 @@
     
     <div class="blog-content">
         <nav class="breadcrumb">
-            
-            <a href="https://amarredeamorfuertes.com/index.html">Inicio</a> > 
-            <a href="https://amarredeamorfuertes.com/index.html#blog">Blog</a> > 
-            Amarres de Amor con Velas
-        
+            ${breadcrumb}
         </nav>
 
-        
-        
-
-        <article>
-            <header>
-                <h1>Amarres de Amor con Velas: El Poder de la Luz</h1>
-                <div class="article-meta">
-                    <span>📅 16 de Enero, 2024</span> | 
-                    <span>👁️ Tiempo de lectura: 10 minutos</span> | 
-                    <span>🏷️ Categoría: Amarres de Amor</span>
-                
+        ${articleWithoutBreadcrumb}
     </div>
     
     <!-- Scripts -->
@@ -376,4 +391,64 @@
         }
     </script>
 </body>
-</html>
+</html>`;
+
+    return cleanHtml;
+}
+
+// Función principal para procesar todos los archivos HTML del blog
+function fixAllBlogArticles() {
+    const blogDir = path.join(__dirname, 'blog');
+    
+    // Leer todos los archivos HTML del directorio blog
+    const files = fs.readdirSync(blogDir).filter(file => file.endsWith('.html'));
+    
+    console.log(`📝 Procesando ${files.length} artículos del blog...`);
+    
+    let fixedCount = 0;
+    let errorCount = 0;
+    
+    files.forEach(file => {
+        try {
+            const filePath = path.join(blogDir, file);
+            const content = fs.readFileSync(filePath, 'utf8');
+            
+            console.log(`🔧 Arreglando estructura HTML de: ${file}`);
+            
+            const fixedContent = fixHtmlStructure(content, file);
+            
+            // Crear backup del archivo original
+            const backupPath = filePath + '.backup';
+            fs.writeFileSync(backupPath, content);
+            
+            // Escribir el contenido arreglado
+            fs.writeFileSync(filePath, fixedContent);
+            
+            console.log(`✅ ${file} - Estructura HTML arreglada`);
+            fixedCount++;
+            
+        } catch (error) {
+            console.error(`❌ Error procesando ${file}:`, error.message);
+            errorCount++;
+        }
+    });
+    
+    console.log('\n📊 Resumen:');
+    console.log(`✅ Artículos arreglados: ${fixedCount}`);
+    console.log(`❌ Errores: ${errorCount}`);
+    console.log(`📁 Total procesados: ${files.length}`);
+    
+    if (errorCount === 0) {
+        console.log('\n🎉 ¡Todos los artículos han sido arreglados exitosamente!');
+        console.log('💾 Se han creado backups de los archivos originales con extensión .backup');
+    } else {
+        console.log('\n⚠️ Algunos archivos tuvieron errores. Revisa los logs arriba.');
+    }
+}
+
+// Ejecutar el script
+if (require.main === module) {
+    fixAllBlogArticles();
+}
+
+module.exports = { fixHtmlStructure, fixAllBlogArticles }; 
