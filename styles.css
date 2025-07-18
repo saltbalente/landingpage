@@ -10,7 +10,9 @@
     margin: 20px 0;
     justify-content: center;
 }
-
+.content-box {
+    color: white !important;
+}
 .feature-item {
     background: rgba(255, 191, 0, 0.1);
     border: 1px solid var(--amber-protection);
@@ -586,7 +588,6 @@ p {
 }
 
 .cta-button .whatsapp-icon svg {
-    width: 100%;
     height: 100%;
     fill: currentColor;
 }

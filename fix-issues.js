@@ -1,33 +1,55 @@
-// Script to fix URL issues and CSS problems
+// Script to fix URL issues, CSS problems, SVG button size, and ensure absolute URLs with domain for resources
 const fs = require('fs');
 const path = require('path');
+
+const DOMAIN = 'https://amarredeamorfuertes.com';
 
 // Function to fix URLs in HTML content
 function fixURLs(htmlContent) {
     // Replace old domain with new domain
     htmlContent = htmlContent.replace(
         /https:\/\/landingpage-edq\.pages\.dev/g,
-        'https://amarredeamorfuertes.com'
+        DOMAIN
     );
-    
-    // Fix relative paths for CSS
+    // Fix /index.html links to absolute
     htmlContent = htmlContent.replace(
-        /href="\.\.\/styles\.css"/g,
-        'href="/styles.css"'
+        /href="\/index\.html"/g,
+        `href="${DOMAIN}/index.html"`
     );
-    
+    // Force all resource links to use absolute URLs with domain
+    htmlContent = htmlContent.replace(
+        /href="(\/)?styles\.css"/g,
+        `href="${DOMAIN}/styles.css"`
+    );
+    htmlContent = htmlContent.replace(
+        /href="(\/)?mobile-optimization\.css"/g,
+        `href="${DOMAIN}/mobile-optimization.css"`
+    );
+    htmlContent = htmlContent.replace(
+        /href="(\/)?layout-optimization\.css"/g,
+        `href="${DOMAIN}/layout-optimization.css"`
+    );
+    htmlContent = htmlContent.replace(
+        /src="(\/)?script\.js"/g,
+        `src="${DOMAIN}/script.js"`
+    );
+    htmlContent = htmlContent.replace(
+        /src="(\/)?image-optimization\.js"/g,
+        `src="${DOMAIN}/image-optimization.js"`
+    );
+    htmlContent = htmlContent.replace(
+        /src="(\/)?performance-optimization\.js"/g,
+        `src="${DOMAIN}/performance-optimization.js"`
+    );
     // Fix relative paths for other resources
     htmlContent = htmlContent.replace(
         /href="\.\.\//g,
-        'href="/'
+        `href="${DOMAIN}/`
     );
-    
-    // Fix src attributes
     htmlContent = htmlContent.replace(
         /src="\.\.\//g,
-        'src="/'
+        `src="${DOMAIN}/`
     );
-    
     return htmlContent;
 }
 
@@ -35,29 +57,37 @@ function fixURLs(htmlContent) {
 function fixCSSReferences(htmlContent) {
     // Remove broken CSS links added by optimization script
     htmlContent = htmlContent.replace(
-        /<link rel="preload" href="\/mobile-optimization\.css"[^>]*>/g,
+        /<link rel="preload" href="(\/)?mobile-optimization\.css"[^>]*>/g,
         ''
     );
     htmlContent = htmlContent.replace(
-        /<link rel="preload" href="\/layout-optimization\.css"[^>]*>/g,
+        /<link rel="preload" href="(\/)?layout-optimization\.css"[^>]*>/g,
         ''
     );
     htmlContent = htmlContent.replace(
-        /<link rel="stylesheet" href="\/mobile-optimization\.css"[^>]*>/g,
+        /<link rel="stylesheet" href="(\/)?mobile-optimization\.css"[^>]*>/g,
         ''
     );
     htmlContent = htmlContent.replace(
-        /<link rel="stylesheet" href="\/layout-optimization\.css"[^>]*>/g,
+        /<link rel="stylesheet" href="(\/)?layout-optimization\.css"[^>]*>/g,
         ''
     );
-    
     // Add correct CSS references
     const correctCSS = `
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="/mobile-optimization.css">
-    <link rel="stylesheet" href="/layout-optimization.css">
+    <link rel="stylesheet" href="${DOMAIN}/styles.css">
+    <link rel="stylesheet" href="${DOMAIN}/mobile-optimization.css">
+    <link rel="stylesheet" href="${DOMAIN}/layout-optimization.css">
+    <style>
+    /* Fix SVG size in buttons */
+    button svg, .btn svg, .cta-button svg {
+      width: 1.2em;
+      height: 1.2em;
+      vertical-align: middle;
+      display: inline-block;
+      margin: 0 0.2em 0 0;
+    }
+    </style>
     `;
-    
     // Add CSS after existing stylesheets
     if (htmlContent.includes('<link rel="stylesheet"')) {
         htmlContent = htmlContent.replace(
@@ -70,7 +100,6 @@ function fixCSSReferences(htmlContent) {
             `    ${correctCSS}\n</head>`
         );
     }
-    
     return htmlContent;
 }
 
@@ -78,35 +107,32 @@ function fixCSSReferences(htmlContent) {
 function fixJSReferences(htmlContent) {
     // Remove broken JS links
     htmlContent = htmlContent.replace(
-        /<link rel="preload" href="\/image-optimization\.js"[^>]*>/g,
+        /<link rel="preload" href="(\/)?image-optimization\.js"[^>]*>/g,
         ''
     );
     htmlContent = htmlContent.replace(
-        /<link rel="preload" href="\/performance-optimization\.js"[^>]*>/g,
+        /<link rel="preload" href="(\/)?performance-optimization\.js"[^>]*>/g,
         ''
     );
     htmlContent = htmlContent.replace(
-        /<script src="\/image-optimization\.js"[^>]*><\/script>/g,
+        /<script src="(\/)?image-optimization\.js"[^>]*><\/script>/g,
         ''
     );
     htmlContent = htmlContent.replace(
-        /<script src="\/performance-optimization\.js"[^>]*><\/script>/g,
+        /<script src="(\/)?performance-optimization\.js"[^>]*><\/script>/g,
         ''
     );
-    
     // Add correct JS references
     const correctJS = `
-    <script src="/script.js" defer></script>
-    <script src="/image-optimization.js" defer></script>
-    <script src="/performance-optimization.js" defer></script>
+    <script src="${DOMAIN}/script.js" defer></script>
+    <script src="${DOMAIN}/image-optimization.js" defer></script>
+    <script src="${DOMAIN}/performance-optimization.js" defer></script>
     `;
-    
     // Add JS before closing body tag
     htmlContent = htmlContent.replace(
         '</body>',
         `    ${correctJS}\n</body>`
     );
-    
     return htmlContent;
 }
 
@@ -117,13 +143,11 @@ function fixImageContainers(htmlContent) {
         /<div style="aspect-ratio: 16\/9; overflow: hidden; border-radius: 8px;"><img([^>]*?)src="([^"]*?)"([^>]*) style="width: 100%; height: 100%; object-fit: cover;"><\/div>/g,
         '<img$1src="$2"$3>'
     );
-    
     // Fix lazy loading attributes
     htmlContent = htmlContent.replace(
         /loading="lazy" decoding="async"/g,
         'loading="lazy"'
     );
-    
     return htmlContent;
 }
 
@@ -134,7 +158,6 @@ function fixCriticalCSS(htmlContent) {
         /<style>\s*\/\* Critical CSS for above-the-fold content \*\/[^<]*<\/style>/g,
         ''
     );
-    
     // Add proper critical CSS
     const criticalCSS = `
     <style>
@@ -148,12 +171,10 @@ function fixCriticalCSS(htmlContent) {
     .blog-content { max-width: 800px; margin: 0 auto; padding: 32px 20px; line-height: 1.8; color: #111; background: #fff; border-radius: 18px; box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
     </style>
     `;
-    
     htmlContent = htmlContent.replace(
         '</head>',
         `${criticalCSS}\n</head>`
     );
-    
     return htmlContent;
 }
 
@@ -161,18 +182,15 @@ function fixCriticalCSS(htmlContent) {
 function processHTMLFile(filePath) {
     try {
         let content = fs.readFileSync(filePath, 'utf8');
-        
         // Apply all fixes
         content = fixURLs(content);
         content = fixCSSReferences(content);
         content = fixJSReferences(content);
         content = fixImageContainers(content);
         content = fixCriticalCSS(content);
-        
         // Write back to file
         fs.writeFileSync(filePath, content, 'utf8');
         console.log(`✅ Fixed: ${filePath}`);
-        
     } catch (error) {
         console.error(`❌ Error processing ${filePath}:`, error.message);
     }
@@ -181,14 +199,11 @@ function processHTMLFile(filePath) {
 // Function to find all HTML files
 function findHTMLFiles(dir) {
     const files = [];
-    
     function scanDirectory(currentDir) {
         const items = fs.readdirSync(currentDir);
-        
         items.forEach(item => {
             const fullPath = path.join(currentDir, item);
             const stat = fs.statSync(fullPath);
-            
             if (stat.isDirectory()) {
                 scanDirectory(fullPath);
             } else if (item.endsWith('.html')) {
@@ -196,7 +211,6 @@ function findHTMLFiles(dir) {
             }
         });
     }
-    
     scanDirectory(dir);
     return files;
 }
@@ -204,18 +218,17 @@ function findHTMLFiles(dir) {
 // Main execution
 function main() {
     const htmlFiles = findHTMLFiles('.');
-    
     console.log(`🔧 Found ${htmlFiles.length} HTML files to fix`);
-    console.log('📝 Fixing URLs and CSS issues...\n');
-    
+    console.log('📝 Fixing URLs, CSS, and SVG button size issues...\n');
     htmlFiles.forEach(file => {
         processHTMLFile(file);
     });
-    
     console.log('\n✅ All issues fixed successfully!');
     console.log('\n🔧 Fixed issues:');
     console.log('   • URLs updated to amarredeamorfuertes.com');
-    console.log('   • CSS references corrected');
+    console.log('   • /index.html links are now absolute');
+    console.log('   • CSS/JS references now use absolute URLs with domain');
+    console.log('   • SVG button size fixed');
     console.log('   • JavaScript references fixed');
     console.log('   • Image containers optimized');
     console.log('   • Critical CSS restored');

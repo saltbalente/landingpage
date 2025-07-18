@@ -4,7 +4,7 @@
 :root {
     --primary-color: #8B0000;
     --secondary-color: #1a1a1a;
-    --text-color: #333;
+    --text-color: #ffffff;
     --background-color: #fff;
     --font-family-primary: 'Montserrat', sans-serif;
     --font-family-accent: 'Dancing Script', cursive;
@@ -20,7 +20,7 @@
 body {
     font-family: var(--font-family-primary);
     line-height: 1.6;
-    color: var(--text-color);
+    color: white !important;
     background-color: var(--background-color);
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
@@ -275,7 +275,7 @@ input:focus, textarea:focus, select:focus {
 @media (prefers-contrast: high) {
     :root {
         --primary-color: #000;
-        --text-color: #000;
+        --text-color: #ffffff;
         --background-color: #fff;
     }
     
