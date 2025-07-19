@@ -1,24 +1,33 @@
 User-agent: *
 Allow: /
 
-# Sitemap
+# Sitemap actualizado diariamente
 Sitemap: https://amarredeamorfuertes.com/sitemap.xml
 
-# Crawl-delay optimizado
-Crawl-delay: 1
+# Sitio con contenido fresco y actualizado diariamente
+# Crawl-delay optimizado para contenido dinámico
+Crawl-delay: 0.5
 
-# Configuración específica para Google
+# Información para motores de búsqueda
+# Este sitio se actualiza diariamente con contenido nuevo y relevante
+# Contenido agregador de alta calidad sobre amarres de amor y esoterismo
+
+# Configuración específica para Google - Contenido actualizado diariamente
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 0.5
+Crawl-delay: 0.2
 
 User-agent: Googlebot-Image
 Allow: /
-Crawl-delay: 0.5
+Crawl-delay: 0.2
 
 User-agent: Googlebot-Mobile
 Allow: /
-Crawl-delay: 0.5
+Crawl-delay: 0.2
+
+User-agent: Googlebot-News
+Allow: /
+Crawl-delay: 0.1
 
 # Otros motores de búsqueda
 User-agent: Bingbot
@@ -46,8 +55,19 @@ Disallow: /cgi-bin/
 Disallow: /wp-admin/
 Disallow: /wp-includes/
 
-# Allow important directories
+# Allow important directories - Contenido agregador de calidad
 Allow: /blog/
+Allow: /blog/brujos-en-consulta-gratis/
 Allow: /css/
 Allow: /js/
-Allow: /images/ 
+Allow: /images/
+Allow: /assets/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.json
+
+# Información adicional para crawlers
+# Frecuencia de actualización: Diaria
+# Tipo de contenido: Agregador especializado en esoterismo
+# Última actualización del sitemap: 2024-01-21
+# Host: https://amarredeamorfuertes.com
