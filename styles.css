@@ -1359,7 +1359,7 @@ p {
 }
 
 #blog .blog-content p {
-    color: black !important;
+    color: rgb(255, 255, 255) !important;
     line-height: 1.6;
     margin-bottom: 20px;
     font-size: 0.95rem;
