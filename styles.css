@@ -4,7 +4,9 @@
  .blog-content p {
     color: black !important;
 }
-
+.success-box h4, .success-box li, .highlight-box h4, .highlight-box p, .warning-box h4, .warning-box p, .highlight-box h4, .highlight-box li, .warning-box h4, .warning-box li, .highlight-box p, #testimonios p {
+    color: black !important;}
+    
         * {
             margin: 0;
             padding: 0;
@@ -63,8 +65,7 @@
         }
         
         .toc {
-            background: #fff;
-            border: 2px solid #FF69B4;
+             border: 2px solid #FF69B4;
             border-radius: 10px;
             padding: 20px;
             margin: 30px 0;
@@ -112,6 +113,7 @@
             margin: 20px 0;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            color: #333333;
         }
         
         .warning-box {
@@ -121,6 +123,7 @@
             margin: 20px 0;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            color: #333333;
         }
         
         .success-box {
@@ -130,6 +133,7 @@
             margin: 20px 0;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            color: #333333;
         }
         
         .cta-section {
