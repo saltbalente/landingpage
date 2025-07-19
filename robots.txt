@@ -69,5 +69,5 @@ Allow: /*.json
 # Información adicional para crawlers
 # Frecuencia de actualización: Diaria
 # Tipo de contenido: Agregador especializado en esoterismo
-# Última actualización del sitemap: 2024-01-21
+# Última actualización del sitemap: 2025-01-21
 # Host: https://amarredeamorfuertes.com
