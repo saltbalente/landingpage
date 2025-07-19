@@ -1,4 +1,6 @@
 # Cache Control Headers
+
+ErrorDocument 404 /index.html
 <IfModule mod_expires.c>
     ExpiresActive On
     
@@ -40,4 +42,4 @@
     Header always set X-Frame-Options DENY
     Header always set X-XSS-Protection "1; mode=block"
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
-</IfModule> 
+</IfModule>
