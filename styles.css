@@ -1,7 +1,9 @@
 /* ------------------------- */
 /* --- CSS Reset & Setup --- */
 /* ------------------------- */
-
+ .blog-content p {
+    color: black !important;
+}
 /* Hero Features */
 .hero-features {
     display: flex;
@@ -12,6 +14,43 @@
 }
 .content-box {
     color: white !important;
+}
+body, p, body {
+    color: white !important;
+}
+
+/* Ensure all text elements are white */
+h1, h2, h3, h4, h5, h6, p, span, div, li, a {
+    color: white !important;
+}
+
+/* Override specific elements that might have different colors */
+.content-box h1, .content-box h2, .content-box h3, .content-box h4, .content-box h5, .content-box h6,
+.content-box p, .content-box span, .content-box div, .content-box li {
+    color: white !important;
+}
+
+.parallax-section h1, .parallax-section h2, .parallax-section h3, .parallax-section h4, .parallax-section h5, .parallax-section h6,
+.parallax-section p, .parallax-section span, .parallax-section div, .parallax-section li {
+    color: white !important;
+}
+
+/* Specific overrides for elements that might resist */
+.maestro-descripcion, .maestro-nombre, .maestro-titulo {
+    color: white !important;
+}
+
+.feature-item, .benefit-item, .poder-item {
+    color: white !important;
+}
+
+/* Breadcrumb text white */
+.breadcrumb-item, .breadcrumb-link {
+    color: white !important;
+}
+
+.breadcrumb-item:not(:last-child)::after {
+    color: var(--amber-protection) !important;
 }
 .feature-item {
     background: rgba(255, 191, 0, 0.1);
@@ -148,7 +187,7 @@
 }
 
 .breadcrumb-link {
-    color: var(--light-text);
+    color: white !important;
     text-decoration: none;
     font-size: 0.8rem;
     padding: 5px 10px;
@@ -412,12 +451,19 @@ html {
 body {
     font-family: var(--body-font);
     background-color: var(--dark-bg);
-    color: var(--light-text);
+    color: white !important;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     padding-top: 70px; /* Compensar header fijo */
     overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Responsive body padding */
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px;
+    }
 }
 
 /* ------------------------- */
@@ -517,6 +563,7 @@ h1, h2 {
 p {
     margin-bottom: 25px;
     font-size: 1rem;
+    color: #ffffff;
 }
 
 /* CTA Button Styling (Mobile-First) */
@@ -949,9 +996,18 @@ p {
 
 /* Header Responsive */
 @media (max-width: 768px) {
+    .header-mistico {
+        padding: 0 15px;
+    }
+    
+    .nav-container {
+        padding: 0 15px;
+        height: 60px;
+    }
+    
     .nav-menu {
         position: fixed;
-        top: 70px;
+        top: 60px;
         left: 0;
         right: 0;
         background: rgba(18, 18, 18, 0.98);
@@ -965,6 +1021,7 @@ p {
         visibility: hidden;
         transition: all 0.3s ease;
         border-bottom: 1px solid var(--amber-protection);
+        z-index: 999;
     }
 
     .nav-menu.active {
@@ -979,6 +1036,7 @@ p {
         padding: 15px;
         border-radius: 10px;
         border: 1px solid transparent;
+        font-size: 1.1rem;
     }
 
     .nav-link:hover {
@@ -990,7 +1048,27 @@ p {
     }
 
     .brand-text {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+    }
+    
+    .brand-icon {
+        font-size: 1.5rem;
+    }
+}
+
+/* Tablet responsive */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .nav-container {
+        padding: 0 30px;
+    }
+    
+    .nav-menu {
+        gap: 20px;
+    }
+    
+    .nav-link {
+        font-size: 0.95rem;
+        padding: 6px 12px;
     }
 }
 
@@ -1043,22 +1121,49 @@ p {
     padding: 25px;
 }
 
-.blog-content h3 {
-    color: var(--amber-protection);
+/* Blog content styles - only for individual blog pages */
+.blog-article .blog-content h3 {
+    color: black;
     font-size: 2rem;
     margin-bottom: 15px;
     font-weight: 600;   
     line-height: 1.3;
 }
 
-.blog-content p {
-    color: black;
+.blog-article .blog-content p {
+    color: black !important;
     line-height: 1.6;
     margin-bottom: 20px;
     font-size: 0.95rem;
 }
-p {
+
+.blog-article .blog-content * {
     color: black !important;
+}
+
+/* Home page blog cards - white text */
+#blog .blog-content h3 {
+    color: white !important;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 600;   
+    line-height: 1.3;
+}
+
+#blog .blog-content p {
+    color: black !important;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+#blog .blog-content * {
+    color: white !important;
+}
+
+/* Override for home page paragraphs */
+#hero p, #maestro p, #amarre p, #endulzamiento p, #desespero p, #testimonios p, #faq p {
+    color: white !important;
 }
 .blog-link {
     display: inline-block;
@@ -1167,4 +1272,4 @@ p {
 .footer-section h3 {
     font-size: 1.4rem !important;
     color: #111 !important;
-} 
+}
