@@ -1,170 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <!-- Landing Page Principal -->
+    <!-- Página Principal -->
     <url>
         <loc>https://amarredeamorfuertes.com/</loc>
-        <lastmod>2025-01-15</lastmod>
-        <changefreq>weekly</changefreq>
+        <lastmod>2025-07-19</lastmod>
+        <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     
-    <!-- Secciones de la Landing Page -->
+    <!-- Secciones Principales -->
     <url>
         <loc>https://amarredeamorfuertes.com/#maestro</loc>
-        <lastmod>2025-01-15</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2025-07-19</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://amarredeamorfuertes.com/#hero</loc>
-        <lastmod>2025-01-15</lastmod>
+        <lastmod>2025-07-19</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://amarredeamorfuertes.com/#amarre</loc>
-        <lastmod>2025-01-15</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://amarredeamorfuertes.com/#endulzamiento</loc>
-        <lastmod>2025-01-15</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://amarredeamorfuertes.com/#desespero</loc>
-        <lastmod>2025-01-15</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
     </url>
     <url>
         <loc>https://amarredeamorfuertes.com/#testimonios</loc>
-        <lastmod>2025-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <lastmod>2025-07-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://amarredeamorfuertes.com/#blog</loc>
+        <lastmod>2025-07-19</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
     </url>
     <url>
         <loc>https://amarredeamorfuertes.com/#faq</loc>
-        <lastmod>2025-01-15</lastmod>
+        <lastmod>2025-07-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://amarredeamorfuertes.com/#contacto</loc>
+        <lastmod>2025-07-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
-    <!-- Artículos del Blog - Prioridad Alta -->
+    <!-- Artículos del Blog (Generados Dinámicamente) -->
     <url>
         <loc>https://amarredeamorfuertes.com/blog/amarres-de-amor-efectivos.html</loc>
-        <lastmod>2025-01-15</lastmod>
+        <lastmod>2025-07-19</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://amarredeamorfuertes.com/blog/amarres-de-amor-que-funcionan.html</loc>
-        <lastmod>2025-01-15</lastmod>
+        <loc>https://amarredeamorfuertes.com/blog/amarres-de-pareja.html</loc>
+        <lastmod>2025-07-19</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://amarredeamorfuertes.com/blog/amarres-de-amor-garantizados.html</loc>
-        <lastmod>2025-01-15</lastmod>
+        <loc>https://amarredeamorfuertes.com/blog/conjuros-de-amor.html</loc>
+        <lastmod>2025-07-19</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
-    
-    <!-- Artículos del Blog - Prioridad Media -->
     <url>
-        <loc>https://amarredeamorfuertes.com/blog/amarres-de-amor-rapidos.html</loc>
-        <lastmod>2025-01-15</lastmod>
+        <loc>https://amarredeamorfuertes.com/blog/hechizos-para-enamorar.html</loc>
+        <lastmod>2025-07-19</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://amarredeamorfuertes.com/blog/amarres-de-amor-permanentes.html</loc>
-        <lastmod>2025-01-15</lastmod>
+        <loc>https://amarredeamorfuertes.com/blog/retorno-de-pareja.html</loc>
+        <lastmod>2025-07-19</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.9</priority>
     </url>
-    <url>
-        <loc>https://amarredeamorfuertes.com/blog/amarres-de-amor-eternos.html</loc>
-        <lastmod>2025-01-15</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://amarredeamorfuertes.com/blog/amarres-de-amor-para-mujeres.html</loc>
-        <lastmod>2025-01-15</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://amarredeamorfuertes.com/blog/amarres-de-amor-caseros.html</loc>
-        <lastmod>2025-01-15</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <!-- Artículos del Blog - Prioridad Media-Baja -->
-    <url>
-        <loc>https://amarredeamorfuertes.com/blog/amarres-de-amor-con-velas.html</loc>
-        <lastmod>2025-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://amarredeamorfuertes.com/blog/amarres-de-amor-con-miel.html</loc>
-        <lastmod>2025-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://amarredeamorfuertes.com/blog/amarres-de-amor-con-cristales.html</loc>
-        <lastmod>2025-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://amarredeamorfuertes.com/blog/amarres-de-amor-con-luna-llena.html</loc>
-        <lastmod>2025-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://amarredeamorfuertes.com/blog/amarres-de-amor-ancestrales.html</loc>
-        <lastmod>2025-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    
-    <!-- Artículos del Blog - Prioridad Baja -->
-    <url>
-        <loc>https://amarredeamorfuertes.com/blog/chaman-amor-experto.html</loc>
-        <lastmod>2025-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>https://amarredeamorfuertes.com/blog/endulzamientos-enamorar.html</loc>
-        <lastmod>2025-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>https://amarredeamorfuertes.com/blog/rituales-amor-efectivos.html</loc>
-        <lastmod>2025-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>https://amarredeamorfuertes.com/blog/rituales-atraccion.html</loc>
-        <lastmod>2025-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>https://amarredeamorfuertes.com/blog/rituales-reconciliacion.html</loc>
-        <lastmod>2025-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-</urlset> 
+</urlset>
