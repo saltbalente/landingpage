@@ -13,26 +13,38 @@ function getCurrentDate() {
     return new Date().toISOString().split('T')[0];
 }
 
-// Función para obtener todos los archivos HTML del blog
+// Función para obtener todos los archivos HTML del blog (recursiva)
 function getBlogFiles() {
-    try {
-        const files = fs.readdirSync(BLOG_DIR)
-            .filter(file => file.endsWith('.html'))
-            .map(file => {
-                const filePath = path.join(BLOG_DIR, file);
-                const stats = fs.statSync(filePath);
-                return {
-                    name: file,
-                    lastModified: stats.mtime.toISOString().split('T')[0]
-                };
-            })
-            .sort((a, b) => a.name.localeCompare(b.name));
-        
-        return files;
-    } catch (error) {
-        console.error('Error leyendo archivos del blog:', error);
-        return [];
+    const files = [];
+    
+    function scanDirectory(dir, relativePath = '') {
+        try {
+            const items = fs.readdirSync(dir);
+            
+            items.forEach(item => {
+                const fullPath = path.join(dir, item);
+                const stats = fs.statSync(fullPath);
+                
+                if (stats.isDirectory()) {
+                    // Escanear subdirectorio recursivamente
+                    const newRelativePath = relativePath ? `${relativePath}/${item}` : item;
+                    scanDirectory(fullPath, newRelativePath);
+                } else if (item.endsWith('.html')) {
+                    // Agregar archivo HTML
+                    const fileName = relativePath ? `${relativePath}/${item}` : item;
+                    files.push({
+                        name: fileName,
+                        lastModified: stats.mtime.toISOString().split('T')[0]
+                    });
+                }
+            });
+        } catch (error) {
+            console.error(`Error leyendo directorio ${dir}:`, error);
+        }
     }
+    
+    scanDirectory(BLOG_DIR);
+    return files.sort((a, b) => a.name.localeCompare(b.name));
 }
 
 // Función para generar el sitemap XML
