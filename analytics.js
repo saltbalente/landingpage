@@ -140,4 +140,84 @@ window.addEventListener('error', function(e) {
     'error_lineno': e.lineno,
     'page_title': document.title
   });
-}); 
+});
+
+// Automatic Indexing Script for Google
+// This script helps accelerate the indexing process by notifying search engines
+function submitUrlToGoogle(url) {
+  // Using IndexNow API (Microsoft Bing)
+  const indexNowKey = 'your-indexnow-key-here'; // Replace with your actual key
+  const indexNowUrl = `https://api.indexnow.org/indexnow?url=${encodeURIComponent(url)}&key=${indexNowKey}`;
+  
+  // Ping search engines about new content
+  fetch(indexNowUrl, {
+    method: 'GET',
+    mode: 'no-cors'
+  }).catch(error => {
+    console.log('IndexNow ping sent for:', url);
+  });
+}
+
+// Automatic sitemap ping to search engines
+function pingSitemapToSearchEngines() {
+  const sitemapUrl = 'https://amarredeamorfuertes.com/sitemap.xml';
+  const searchEngines = [
+    `https://www.google.com/ping?sitemap=${encodeURIComponent(sitemapUrl)}`,
+    `https://www.bing.com/ping?sitemap=${encodeURIComponent(sitemapUrl)}`
+  ];
+  
+  searchEngines.forEach(pingUrl => {
+    fetch(pingUrl, {
+      method: 'GET',
+      mode: 'no-cors'
+    }).catch(error => {
+      console.log('Sitemap ping sent to search engine');
+    });
+  });
+}
+
+// Submit current page for indexing when loaded
+window.addEventListener('load', function() {
+  // Only submit if it's a new page or blog article
+  if (window.location.pathname.includes('/blog/') || 
+      document.querySelector('meta[name="robots"][content*="index"]')) {
+    
+    // Wait a bit to ensure page is fully loaded
+    setTimeout(() => {
+      const currentUrl = window.location.href;
+      submitUrlToGoogle(currentUrl);
+      
+      // Track indexing attempt
+      gtag('event', 'indexing_request', {
+        'page_url': currentUrl,
+        'page_title': document.title,
+        'timestamp': new Date().toISOString()
+      });
+    }, 3000);
+  }
+});
+
+// Ping sitemap periodically (once per session)
+if (!sessionStorage.getItem('sitemap_pinged')) {
+  setTimeout(() => {
+    pingSitemapToSearchEngines();
+    sessionStorage.setItem('sitemap_pinged', 'true');
+    
+    gtag('event', 'sitemap_ping', {
+      'timestamp': new Date().toISOString()
+    });
+  }, 5000);
+}
+
+// Manual indexing function for specific URLs
+window.requestIndexing = function(url) {
+  if (!url) url = window.location.href;
+  submitUrlToGoogle(url);
+  
+  gtag('event', 'manual_indexing_request', {
+    'page_url': url,
+    'timestamp': new Date().toISOString()
+  });
+  
+  console.log('Indexing request sent for:', url);
+};
