@@ -1,3 +1,8 @@
+# Redirect www to non-www
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.amarredeamorfuertes\.com$ [NC]
+RewriteRule ^(.*)$ https://amarredeamorfuertes.com/$1 [R=301,L]
+
 # Cache Control Headers
 
 ErrorDocument 404 /index.html

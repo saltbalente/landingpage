@@ -1,0 +1,12 @@
+# Redirect www to non-www
+https://www.amarredeamorfuertes.com/* https://amarredeamorfuertes.com/:splat 301!
+
+# Force HTTPS
+http://amarredeamorfuertes.com/* https://amarredeamorfuertes.com/:splat 301!
+http://www.amarredeamorfuertes.com/* https://amarredeamorfuertes.com/:splat 301!
+
+# Fallback for any other www requests
+www.amarredeamorfuertes.com/* amarredeamorfuertes.com/:splat 301!
+
+# SPA fallback (if needed)
+/* /index.html 200

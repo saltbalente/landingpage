@@ -1,3 +1,8 @@
+# Redirect www to non-www (Netlify/Cloudflare)
+https://www.amarredeamorfuertes.com/*
+  Location: https://amarredeamorfuertes.com/:splat
+  Status: 301
+
 /*
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
@@ -50,4 +55,4 @@
 
 /robots.txt
   Content-Type: text/plain
-  Cache-Control: public, max-age=86400 
+  Cache-Control: public, max-age=86400

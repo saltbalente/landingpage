@@ -2,4 +2,18 @@ name = "landingpage"
 compatibility_date = "2025-07-15"
 
 [site]
-bucket = "." 
+bucket = "."
+
+# Domain configuration
+[[route]]
+pattern = "amarredeamorfuertes.com/*"
+zone_name = "amarredeamorfuertes.com"
+
+[[route]]
+pattern = "www.amarredeamorfuertes.com/*"
+zone_name = "amarredeamorfuertes.com"
+
+# Environment variables
+[vars]
+DOMAIN = "amarredeamorfuertes.com"
+WWW_REDIRECT = "true"
