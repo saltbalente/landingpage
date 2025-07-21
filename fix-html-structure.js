@@ -65,8 +65,8 @@ function fixHtmlStructure(htmlContent, filename) {
             "name": "Maestro Alejandro",
             "url": "https://amarredeamorfuertes.com"
         },
-        "datePublished": "2024-01-16",
-        "dateModified": "2024-01-16",
+        "datePublished": "2025-01-16",
+        "dateModified": "2025-01-16",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://amarredeamorfuertes.com/blog/${filename}"
@@ -451,4 +451,4 @@ if (require.main === module) {
     fixAllBlogArticles();
 }
 
-module.exports = { fixHtmlStructure, fixAllBlogArticles }; 
+module.exports = { fixHtmlStructure, fixAllBlogArticles };
