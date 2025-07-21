@@ -66,15 +66,28 @@ function calculateDepth(relativePath) {
 // Función para agregar referencia CSS si no existe
 function addCssReference(content, cssReference) {
     // Buscar si ya existe alguna referencia a styles.css
-    const hasStylesReference = content.includes('styles.css') || content.includes('<style>');
+    const hasStylesReference = content.includes('styles.css');
     
     if (!hasStylesReference) {
-        // Buscar el final del head para insertar la referencia CSS
-        const headEndIndex = content.indexOf('</head>');
-        if (headEndIndex !== -1) {
-            const beforeHead = content.substring(0, headEndIndex);
-            const afterHead = content.substring(headEndIndex);
-            return beforeHead + '    ' + cssReference + '\n' + afterHead;
+        // Buscar el final del </script> del Schema.org
+        const scriptEndMatch = content.match(/<\/script>\s*$/m);
+        if (scriptEndMatch) {
+            const insertPosition = scriptEndMatch.index + scriptEndMatch[0].length;
+            return content.slice(0, insertPosition) + '\n  ' + cssReference + content.slice(insertPosition);
+        }
+        
+        // Si no encuentra </script>, buscar antes de <style>
+        const styleMatch = content.match(/<style>/i);
+        if (styleMatch) {
+            const insertPosition = styleMatch.index;
+            return content.slice(0, insertPosition) + '  ' + cssReference + '\n    ' + content.slice(insertPosition);
+        }
+        
+        // Si no encuentra <style>, buscar antes de </head>
+        const headEndMatch = content.match(/<\/head>/i);
+        if (headEndMatch) {
+            const insertPosition = headEndMatch.index;
+            return content.slice(0, insertPosition) + '  ' + cssReference + '\n' + content.slice(insertPosition);
         }
     }
     
