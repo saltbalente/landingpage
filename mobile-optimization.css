@@ -178,7 +178,6 @@ input:focus, textarea:focus, select:focus {
 
 /* Optimize cards for mobile */
 .card {
-    background: white;
     border-radius: 12px;
     padding: 1.5rem;
     margin: 1rem 0;
