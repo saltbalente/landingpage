@@ -1,14 +1,27 @@
 /* ------------------------- */
 /* --- CSS Reset & Setup --- */
 /* ------------------------- */
- .blog-content p {
-    color: black !important;
+/* DARK THEME GLOBAL OVERRIDES */
+/* Force dark backgrounds for all major containers */
+body, .container, .content-section, .element-grid, .element-card, .ritual-steps, .auto-related-links, .cta-section, .blog-content, .highlight-box, .warning-box, .success-box {
+    background: #1a1a1a !important;
+    background-color: #1a1a1a !important;
 }
-.element-card.element-earth, .element-grid, section.content-section, header.header, .element-card.element-air, .element-card.element-fire, .element-card.element-water, .element-card.element-ether, section.content-section, .ritual-steps, .ritual-steps li, .auto-related-links, .cta-section, .container {
-    background: black !important;
+
+/* Force white text for ALL text elements */
+body, p, h1, h2, h3, h4, h5, h6, span, div, li, a, .blog-content p, .success-box h4, .success-box li, .highlight-box h4, .highlight-box p, .warning-box h4, .warning-box p, .highlight-box li, .warning-box li, #testimonios p {
+    color: white !important;
 }
-.success-box h4, .success-box li, .highlight-box h4, .highlight-box p, .warning-box h4, .warning-box p, .highlight-box h4, .highlight-box li, .warning-box h4, .warning-box li, .highlight-box p, #testimonios p {
-    color: black !important;}
+
+/* Specific overrides for content boxes */
+.highlight-box, .warning-box, .success-box {
+    background: #2a2a2a !important;
+    border-left-color: #ff69b4 !important;
+}
+
+.highlight-box *, .warning-box *, .success-box * {
+    color: white !important;
+}
     
         * {
             margin: 0;
@@ -19,8 +32,8 @@
         body {
             font-family: 'Georgia', serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #faf8f5;
+            color: white !important;
+            background-color: #1a1a1a !important;
         }
         
         .container {
@@ -110,33 +123,33 @@
         }
         
         .highlight-box {
-            background: linear-gradient(135deg, #FFE4E6, #FFF0F2);
+            background: #2a2a2a !important;
             border-left: 5px solid #FF69B4;
             padding: 20px;
             margin: 20px 0;
             border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            color: #333333;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            color: white !important;
         }
         
         .warning-box {
-            background: linear-gradient(135deg, #FFF8DC, #FFFACD);
+            background: #2a2a2a !important;
             border-left: 5px solid #FF6347;
             padding: 20px;
             margin: 20px 0;
             border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            color: #333333;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            color: white !important;
         }
         
         .success-box {
-            background: linear-gradient(135deg, #F0FFF0, #F5FFFA);
+            background: #2a2a2a !important;
             border-left: 5px solid #32CD32;
             padding: 20px;
             margin: 20px 0;
             border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            color: #333333;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            color: white !important;
         }
         
         .cta-section {
@@ -1472,7 +1485,63 @@ p {
     .blog-image {
         height: 120px;
     }
-    
+}
+
+/* FINAL DARK THEME ENFORCEMENT - HIGHEST PRIORITY */
+/* This section ensures all text is white and all backgrounds are dark */
+
+/* Force dark backgrounds on ALL containers */
+html, body, main, section, article, div, .container, .content, .blog-content, .content-section {
+    background: #1a1a1a !important;
+    background-color: #1a1a1a !important;
+}
+
+/* Force white text on ALL text elements */
+*, *::before, *::after {
+    color: white !important;
+}
+
+/* Specific overrides for common elements */
+p, span, div, h1, h2, h3, h4, h5, h6, li, a, strong, em, b, i {
+    color: white !important;
+}
+
+/* Override any inline styles or specific selectors */
+[style*="color"] {
+    color: white !important;
+}
+
+/* Ensure links are visible */
+a {
+    color: #ff69b4 !important;
+}
+
+a:hover {
+    color: #ff1493 !important;
+}
+
+/* Make sure all content boxes have dark backgrounds */
+.toc, .faq-item, .element-card, .ritual-step, .testimonial {
+    background: #2a2a2a !important;
+    color: white !important;
+}
+
+/* Override any remaining light backgrounds */
+.bg-light, .bg-white, .light-bg {
+    background: #1a1a1a !important;
+}
+
+/* Ensure proper contrast for buttons */
+.btn, button, .cta-button {
+    background: #ff69b4 !important;
+    color: white !important;
+    border: none !important;
+}
+
+.btn:hover, button:hover, .cta-button:hover {
+    background: #ff1493 !important;
+    color: white !important;
+}
     .blog-image::before {
         font-size: 2rem;
     }
