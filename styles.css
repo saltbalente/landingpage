@@ -4,6 +4,9 @@
  .blog-content p {
     color: black !important;
 }
+.element-card.element-earth, .element-grid, section.content-section, header.header, .element-card.element-air, .element-card.element-fire, .element-card.element-water, .element-card.element-ether, section.content-section, .ritual-steps, .ritual-steps li, .auto-related-links, .cta-section, .container {
+    background: black !important;
+}
 .success-box h4, .success-box li, .highlight-box h4, .highlight-box p, .warning-box h4, .warning-box p, .highlight-box h4, .highlight-box li, .warning-box h4, .warning-box li, .highlight-box p, #testimonios p {
     color: black !important;}
     
@@ -242,7 +245,9 @@ h1, h2, h3, h4, h5, h6, p, span, div, li, a {
 .parallax-section p, .parallax-section span, .parallax-section div, .parallax-section li {
     color: white !important;
 }
-
+.element-card.element-earth, .element-grid, section.content-section, header.header {
+    background: black;
+}
 /* Specific overrides for elements that might resist */
 .maestro-descripcion, .maestro-nombre, .maestro-titulo {
     color: white !important;
