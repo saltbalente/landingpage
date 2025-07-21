@@ -1542,10 +1542,10 @@ a:hover {
     background: #ff1493 !important;
     color: white !important;
 }
-    .blog-image::before {
-        font-size: 2rem;
-    }
-} 
+
+.blog-image::before {
+    font-size: 2rem;
+}
 
 .footer-content, .footer-content * {
     color: #ffffff !important;
